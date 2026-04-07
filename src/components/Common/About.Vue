@@ -24,21 +24,6 @@
                 </div>
                 <button class="about-block__button" type="button">Узнать больше</button>
             </div>
-
-            <div class="about-block__media">
-                <div class="about-block__card">
-                    <div class="about-block__card-header">
-                        <span>Наши ценности</span>
-                    </div>
-                    <p class="about-block__card-text">
-                        Легкая адаптация под задачи бизнеса, прозрачная коммуникация и надежность на каждом этапе.
-                    </p>
-                    <div class="about-block__card-meta">
-                        <span>UI/UX дизайн</span>
-                        <span>Frontend</span>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 </template>
