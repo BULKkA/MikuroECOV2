@@ -4,10 +4,10 @@
             <li
                 v-for="item in items"
                 :key="item.name"
-                :class="['nav-item', { active: item.name === active }]"
-                @click="active = item.name"
+                :class="['nav-item', { active: item.name === activeTab }]"
+                @click="setActiveTab(item.name)"
             >
-                <span class="nav-icon">{{ item.icon }}</span>
+                <span class="nav-icon" >{{ item.icon }}</span>
                 <span class="nav-text">{{ item.label }}</span>
             </li>
         </ul>
@@ -15,16 +15,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { defineModel } from 'vue'
 
-const active = ref('home')
+const activeTab = defineModel({
+  default: 'home',
+  type: String 
+})
+
+function setActiveTab(tabName) {
+    activeTab.value = tabName
+    console.log('Tab changed to:', tabName) // для отладки
+}
 
 const items = [
-    { name: 'home', label: 'Главная', icon: '🏠' },
-    { name: 'search', label: 'Поиск', icon: '🔍' },
+    { name: 'home', label: 'Домик', icon: '🏠' },
+    { name: 'catalog', label: 'Каталог', icon: '🔍' },
     { name: 'favorites', label: 'Избранное', icon: '❤️' },
-    { name: 'profile', label: 'Профиль', icon: '👤' },
+    { name: 'about', label: 'О нас', icon: '👤' },
 ]
+
 </script>
 
 <style scoped>
@@ -33,8 +42,7 @@ const items = [
     justify-content: left;
     padding: 14px 24px;
     border-radius: 20px;
-    align-self: left;
-    width: 15%;
+    width: 10%;
     height: 100%;
 }
 
@@ -46,6 +54,7 @@ const items = [
     margin: 0;
     padding: 0;
     flex-direction: column;
+    align-self: right;
 }
 
 .nav-item {
@@ -54,7 +63,7 @@ const items = [
     gap: 10px;
     padding: 12px 18px;
     border-radius: 999px;
-    color: #cbd5e1;
+    
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
@@ -65,7 +74,7 @@ const items = [
 }
 
 .nav-item.active {
-    color: #fff;
+ 
     background: rgba(59, 130, 246, 0.18);
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.18);
 }

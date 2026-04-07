@@ -4,16 +4,10 @@
             <image src="/favicon.ico" alt="Logo" class="menu-logo" />
             <ul class="menu-list">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">Главная</a>
+                    <a href="#" class="menu-link">Вход</a>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">О нас</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">Services</a>
-                </li>
-                <li class="menu-item">
-                    <a href="#" class="menu-link">Контакты</a>
+                    <a href="#" class="menu-link">Регистрация</a>
                 </li>
             </ul>
         </nav>
@@ -35,8 +29,8 @@ export default {
     border-bottom: 1px solid #ddd;
     width: 100%;
     height: auto;
-    position: block;
     box-sizing: border-box;
+    display: block;
 }
 
 .menu-nav {
@@ -44,17 +38,19 @@ export default {
     margin: 0;
     display: flex;
     flex-direction: row;
+    width: 100%;
+    justify-content: space-between
 }
 
 .menu-list {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 0 auto;
     display: flex;
     flex-direction: row;
     padding: 0.75rem 1.25rem;     /* вместо px */
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem);    
-
+    font-size: clamp(0.95rem, 2.5vw, 1.15rem);   
+    justify-content: right;
 }
 
 .menu-item {
@@ -62,7 +58,7 @@ export default {
 }
 
 .menu-link {
-    display: flex;
+    display: block;
     padding: 12px 20px;
     text-decoration: none;
     color: #333;
@@ -82,6 +78,7 @@ export default {
     margin-left: 1rem;
     margin-right: 1rem;
     align-self: center;
+    flex-shrink: 0;
 }
 
 </style>

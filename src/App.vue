@@ -1,23 +1,41 @@
 <script setup>
 import MenuPanel from './components/Common/MenuPanel.vue'
-import News from './components/Common/News.vue'
+import Home from './components/Common/News.vue'
 import NavBar from './components/Common/NavBar.vue'
+import About from './components/Common/About.vue'
+
+import { ref, computed } from 'vue'
+
+const activeTab = ref('home') 
+
+//Преобразуем строку в настоящий компонент
+const currentComponent = computed(() => {
+  switch (activeTab.value) {
+    case 'home':   return Home  
+    case 'about':  return About
+    case 'catalog': return Home     // добавь остальные по мере необходимости
+    case 'favorites': return Home
+    default:       return Home
+  }
+})
 </script>
 
 <template>
   
   <div class="app-container">
-    <MenuPanel />
+    <MenuPanel/>
     <div class="Menu-content">
-      <NavBar />    
+      <NavBar v-model="activeTab"/>    
       <div class="content">  
-        <News />
-        <p>Hello, World!</p>
+        <KeepAlive>
+          <component :is="currentComponent" />
+        </KeepAlive>
       </div> 
     </div> 
   </div>
   
 </template>
+
 
 <style scoped>
 .app-container {
