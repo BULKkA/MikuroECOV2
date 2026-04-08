@@ -3,6 +3,7 @@ import MenuPanel from './components/Common/MenuPanel.vue'
 import Home from './components/Common/News.vue'
 import NavBar from './components/Common/NavBar.vue'
 import About from './components/Common/About.vue'
+import Roll from './components/Common/Roll.vue'
 
 import { ref, computed } from 'vue'
 
@@ -13,7 +14,7 @@ const currentComponent = computed(() => {
   switch (activeTab.value) {
     case 'home':   return Home  
     case 'about':  return About
-    case 'catalog': return Home     // добавь остальные по мере необходимости
+    case 'roll': return Roll     // добавь остальные по мере необходимости
     case 'favorites': return Home
     default:       return Home
   }

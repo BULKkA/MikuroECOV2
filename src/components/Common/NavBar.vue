@@ -29,9 +29,9 @@ function setActiveTab(tabName) {
 
 const items = [
     { name: 'home', label: 'Домик', icon: '🏠' },
-    { name: 'catalog', label: 'Каталог', icon: '🔍' },
+    { name: 'roll', label: 'Лента', icon: '🔍' },
     { name: 'favorites', label: 'Избранное', icon: '❤️' },
-    { name: 'about', label: 'О нас', icon: '👤' },
+    { name: 'about', label: 'ああああ', icon: '👤' },
 ]
 
 </script>

@@ -1,7 +1,7 @@
 <template>
     <div class="menu-panel">
         <nav class="menu-nav">
-            <image src="/favicon.ico" alt="Logo" class="menu-logo" />
+            <image src="/Icon.png" alt="Logo" class="menu-logo" />
             <ul class="menu-list">
                 <li class="menu-item">
                     <a href="#" class="menu-link">Вход</a>
@@ -73,8 +73,8 @@ export default {
 }
 
 .menu-logo {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100ppx;
     margin-left: 1rem;
     margin-right: 1rem;
     align-self: center;
