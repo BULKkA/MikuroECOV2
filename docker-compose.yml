@@ -7,15 +7,13 @@ services:
       dockerfile: Dockerfile
     container_name: mkr-frontend
     ports:
-      - "80:80"
-      # Раскомментируйте для HTTPS (требует сертификата)
-      # - "443:443"
+      - "443:443"
     environment:
       - NODE_ENV=production
     restart: unless-stopped
     # Опционально: volume для сертификатов SSL (если используется HTTPS)
-    # volumes:
-    #   - ./ssl:/etc/nginx/ssl:ro
+    volumes:
+     - ./ssl:/etc/nginx/ssl:ro
     networks:
       - mkr-network
 
