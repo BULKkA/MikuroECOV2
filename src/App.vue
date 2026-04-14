@@ -1,24 +1,7 @@
 <script setup>
 import MenuPanel from './components/Common/MenuPanel.vue'
-import Home from './components/Common/News.vue'
 import NavBar from './components/Common/NavBar.vue'
-import About from './components/Common/About.vue'
-import Roll from './components/Common/Roll.vue'
-
-import { ref, computed } from 'vue'
-
-const activeTab = ref('home') 
-
-//Преобразуем строку в настоящий компонент
-const currentComponent = computed(() => {
-  switch (activeTab.value) {
-    case 'home':   return Home  
-    case 'about':  return About
-    case 'roll': return Roll     // добавь остальные по мере необходимости
-    case 'favorites': return Home
-    default:       return Home
-  }
-})
+import { RouterView } from 'vue-router' // Explicitly import RouterView
 </script>
 
 <template>
@@ -26,10 +9,10 @@ const currentComponent = computed(() => {
   <div class="app-container">
     <MenuPanel/>
     <div class="Menu-content">
-      <NavBar v-model="activeTab"/>    
+      <NavBar/>    
       <div class="content">  
         <KeepAlive>
-          <component :is="currentComponent" />
+          <RouterView />
         </KeepAlive>
       </div> 
     </div> 
