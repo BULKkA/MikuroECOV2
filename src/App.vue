@@ -11,9 +11,11 @@ import { RouterView } from 'vue-router' // Explicitly import RouterView
     <div class="Menu-content">
       <NavBar/>    
       <div class="content">  
-        <KeepAlive>
-          <RouterView />
-        </KeepAlive>
+        <router-view v-slot="{ Component }">
+          <keep-alive>
+            <component :is="Component" />
+          </keep-alive>
+        </router-view>
       </div> 
     </div> 
   </div>

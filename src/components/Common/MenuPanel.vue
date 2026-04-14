@@ -1,13 +1,13 @@
 <template>
     <div class="menu-panel">
         <nav class="menu-nav">
-            <image src="/Icon.png" alt="Logo" class="menu-logo" />
+            <img src="/Icon.png" alt="Logo" class="menu-logo" />
             <ul class="menu-list">
                 <li class="menu-item">
-                    <a href="#" class="menu-link">Вход</a>
+                    <router-link to="/login" class="menu-link">Вход</router-link>
                 </li>
                 <li class="menu-item">
-                    <a href="#" class="menu-link">Регистрация</a>
+                    <router-link to="/register" class="menu-link">Регистрация</router-link>
                 </li>
             </ul>
         </nav>

@@ -1,39 +1,33 @@
 <template>
     <nav class="nav-wrapper">
         <ul class="nav-list">
-            <li
+            <!-- Используем router-link для смены URL -->
+            <router-link
                 v-for="item in items"
                 :key="item.name"
-                :class="['nav-item', { active: item.name === activeTab }]"
-                @click="setActiveTab(item.name)"
+                :to="{ name: item.name }"
+                custom
+                v-slot="{ navigate, isActive }"
             >
-                <span class="nav-icon" >{{ item.icon }}</span>
-                <span class="nav-text">{{ item.label }}</span>
-            </li>
+                <li
+                    :class="['nav-item', { active: isActive }]"
+                    @click="navigate"
+                >
+                    <span class="nav-icon">{{ item.icon }}</span>
+                    <span class="nav-text">{{ item.label }}</span>
+                </li>
+            </router-link>
         </ul>
     </nav>
 </template>
 
 <script setup>
-import { defineModel } from 'vue'
-
-const activeTab = defineModel({
-  default: 'home',
-  type: String 
-})
-
-function setActiveTab(tabName) {
-    activeTab.value = tabName
-    console.log('Tab changed to:', tabName) // для отладки
-}
-
 const items = [
-    { name: 'home', label: 'Домик', icon: '🏠' },
-    { name: 'roll', label: 'Лента', icon: '🔍' },
-    { name: 'favorites', label: 'Избранное', icon: '❤️' },
+    { name: 'index', label: 'Домик', icon: '🏠' },
+    { name: 'roll', label: 'Лента', icon: '🔍' }, 
+    { name: 'profile', label: 'Профиль', icon: '❤️' },
     { name: 'about', label: 'ああああ', icon: '👤' },
 ]
-
 </script>
 
 <style scoped>

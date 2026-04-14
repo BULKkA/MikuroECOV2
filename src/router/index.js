@@ -1,21 +1,27 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 // Import views
-import HomeView from '../views/HomeView.vue'
-import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/RegisterView.vue'
-import ProfileView from '../views/ProfileView.vue'
-import PostDetailView from '../views/PostDetailView.vue'
-import AdminView from '../views/AdminView.vue'
-import AboutView from '../views/AboutView.vue'
+import IndexView from '../components/Common/IndexView.vue'
+import RollView from '../components/Common/RollView.vue'
+import LoginView from '../components/Common/LoginView.vue'
+import RegisterView from '../components/Common/RegisterView.vue'
+import ProfileView from '../components/Common/ProfileView.vue'
+import PostDetailView from '../components/Common/PostDetailView.vue'
+import AdminView from '../components/Common/AdminView.vue'
+import AboutView from '../components/Common/AboutView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'index',
+      component: IndexView
+    },
+    {
+      path: '/roll',
+      name: 'roll',
+      component: RollView
     },
     {
       path: '/about',
@@ -53,7 +59,7 @@ const router = createRouter({
     {
       path: '/:pathMatch(.*)*',
       name: 'NotFound',
-      component: () => import('../views/NotFoundView.vue')
+      component: () => import('../components/Common/NotFoundView.vue')
     }
   ],
 })
