@@ -8,7 +8,6 @@
                     <p class="about-block__text">{{ t('aboutPage.description') }}</p>
                     <div class="hero-actions">
                         <button class="primary-button" @click="contactEmail">{{ t('aboutPage.action') }}</button>
-                        <span class="hero-note">{{ t('language') }}: {{ t(`languages.${lang}`) }}</span>
                     </div>
                 </div>
                 <div class="hero-card">
@@ -57,8 +56,8 @@ const services = computed(() => t('aboutPage.services'))
 const benefits = computed(() => t('aboutPage.benefits'))
 
 const contactItems = computed(() => [
-    { name: 'github', url: 'https://github.com/BULKkA', icon: '🐙', label: t('contact.github') },
-    { name: 'discord', url: 'https://discord.com', icon: '🎮', label: t('contact.discord') },
+    //{ name: 'github', url: 'https://github.com/BULKkA', icon: '🐙', label: t('contact.github') },
+    //{ name: 'discord', url: 'https://discord.com', icon: '🎮', label: t('contact.discord') },
     { name: 'email', url: 'mailto:saki.chan.2314@gmail.com', icon: '📧', label: t('contact.email') },
     { name: 'telegram', url: 'https://t.me/OlezhaPotapov', icon: '📱', label: t('contact.telegram') }
 ])
