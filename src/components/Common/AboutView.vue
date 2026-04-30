@@ -38,13 +38,81 @@ function openContact(contactName) {
 </script>
 
 <style scoped>
-.about-block { padding: 40px 20px; }
-.about-block__content { max-width: 800px; margin: 0 auto; text-align: center; }
-.about-block__text { font-size: 18px; color: #333; margin-bottom: 30px; }
-.about-block__contacts { list-style: none; padding: 0; display: flex; justify-content: center; gap: 20px; }
-.about-block__contacts li { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; transition: color 0.3s; }
-.about-block__contacts li:hover { color: #1976d2; }
-.nav-icon { font-size: 24px; }
-.nav-text { font-size: 16px; }
+.about-block {
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+.about-block__content {
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+}
+.about-block__text {
+  font-size: clamp(16px, 2vw, 18px);
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.65;
+}
+.about-block__contacts {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.about-block__contacts li {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.about-block__contacts li:hover {
+  color: #1976d2;
+}
+.nav-icon {
+  font-size: 24px;
+}
+.nav-text {
+  font-size: 16px;
+}
 
+@media (max-width: 768px) {
+  .about-block {
+    padding: 24px 16px;
+  }
+
+  .about-block__content {
+    padding: 0 8px;
+  }
+
+  .about-block__text {
+    margin-bottom: 24px;
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .about-block__contacts {
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .about-block__contacts li {
+    padding: 10px 12px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.04);
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .nav-icon {
+    font-size: 20px;
+  }
+
+  .nav-text {
+    font-size: 14px;
+  }
+}
 </style>
