@@ -127,4 +127,45 @@ button.liked {
     background-color: #007bff;
     color: white;
 }
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .post-mini {
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+    
+    .post-header {
+        margin-bottom: 8px;
+    }
+    
+    .avatar {
+        width: 32px;
+        height: 32px;
+        margin-right: 8px;
+    }
+    
+    .author-info h4 {
+        font-size: 14px;
+    }
+    
+    .date {
+        font-size: 11px;
+    }
+    
+    .post-content h3 {
+        font-size: 16px;
+    }
+    
+    .post-actions {
+        margin-top: 8px;
+        flex-direction: column;
+        gap: 4px;
+    }
+    
+    button {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+}
 </style>

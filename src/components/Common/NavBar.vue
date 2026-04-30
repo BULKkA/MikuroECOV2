@@ -81,4 +81,44 @@ const items = [
     font-size: 0.95rem;
     font-weight: 600;
 }
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .nav-wrapper {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: white;
+        border-top: 1px solid #ddd;
+        z-index: 1000;
+    }
+    
+    .nav-list {
+        flex-direction: row;
+        justify-content: space-around;
+        width: 100%;
+        gap: 0;
+    }
+    
+    .nav-item {
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        padding: 8px;
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .nav-text {
+        font-size: 0.75rem;
+    }
+    
+    .nav-icon {
+        font-size: 1.2rem;
+    }
+}
 </style>

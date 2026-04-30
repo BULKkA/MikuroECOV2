@@ -45,4 +45,19 @@ import { RouterView } from 'vue-router' // Explicitly import RouterView
   gap: 20px; /* отступ между NavBar и контентом */
 }
 
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 0.5rem;
+  }
+  
+  .Menu-content {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .content {
+    padding-bottom: 80px; /* space for bottom nav */
+  }
+}
 </style>

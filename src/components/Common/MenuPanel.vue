@@ -81,4 +81,28 @@ export default {
     flex-shrink: 0;
 }
 
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .menu-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .menu-list {
+        margin: 0;
+        padding: 0.5rem;
+        justify-content: center;
+    }
+    
+    .menu-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+    
+    .menu-logo {
+        width: 80px;
+        height: 80px;
+        margin: 0.5rem 0;
+    }
+}
 </style>
