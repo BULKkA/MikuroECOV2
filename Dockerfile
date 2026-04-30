@@ -6,8 +6,11 @@ WORKDIR /app
 # Копируем package.json и package-lock.json (если есть)
 COPY package*.json ./
 
+# Удаляем package-lock.json для чистой установки
+RUN rm -f package-lock.json
+
 # Устанавливаем зависимости
-RUN if [ -s package-lock.json ]; then npm ci; else npm install; fi
+RUN npm install
 
 # Копируем исходный код
 COPY . .
