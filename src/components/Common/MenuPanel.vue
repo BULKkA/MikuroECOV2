@@ -4,12 +4,7 @@
             <img src="/Icon.png" alt="Logo" class="menu-logo" />
             <div class="menu-actions">
                 <ul class="menu-list">
-                    <li class="menu-item">
-                        <router-link to="/login" class="menu-link">{{ t('menu.login') }}</router-link>
-                    </li>
-                    <li class="menu-item">
-                        <router-link to="/register" class="menu-link">{{ t('menu.register') }}</router-link>
-                    </li>
+                    <!-- Login and Register hidden until implemented -->
                 </ul>
                 <div class="lang-switcher">
                     <button
@@ -122,11 +117,29 @@ const setLang = inject('setLang')
 
 @media (max-width: 768px) {
     .menu-nav {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    .menu-actions {
+        flex-direction: row;
+        align-items: center;
         justify-content: space-between;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .menu-logo {
+        width: 60px;
+        margin-right: 0.5rem;
+    }
+    
+    .menu-actions {
+        justify-content: flex-end;
+        gap: 0.75rem;
+    }
+    
+    .menu-list {
+        display: none;
+    }
+    
+    .lang-switcher button {
+        padding: 6px 10px;
+        font-size: 0.75rem;
     }
 }
 </style>

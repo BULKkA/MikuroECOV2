@@ -27,8 +27,6 @@ const t = inject('t')
 
 const items = computed(() => [
     { name: 'index', label: t('nav.home'), icon: '🏠' },
-    { name: 'roll', label: t('nav.feed'), icon: '🔍' },
-    { name: 'profile', label: t('nav.profile'), icon: '❤️' },
     { name: 'about', label: t('nav.about'), icon: '👤' }
 ])
 </script>
@@ -87,7 +85,7 @@ const items = computed(() => [
     .nav-wrapper {
         width: 100%;
         height: auto;
-        padding: 10px;
+        padding: 8px;
         position: fixed;
         bottom: 0;
         left: 0;
@@ -99,26 +97,27 @@ const items = computed(() => [
     
     .nav-list {
         flex-direction: row;
-        justify-content: space-around;
+        justify-content: center;
         width: 100%;
-        gap: 0;
+        gap: 4px;
     }
     
     .nav-item {
-        flex-direction: column;
+        flex-direction: row;
         align-items: center;
-        gap: 4px;
-        padding: 8px;
-        flex: 1;
+        gap: 6px;
+        padding: 6px 12px;
+        flex: 0;
         justify-content: center;
+        font-size: 0.85rem;
     }
     
     .nav-text {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
     }
     
     .nav-icon {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 }
 </style>
