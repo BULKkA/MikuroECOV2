@@ -1,14 +1,13 @@
 <template>
   <div class="home-view">
-    <h1>Добро пожаловать в MikuroECOV2</h1>
-    <p class="description">
-      Это главная страница вашего личного блога и дневников разработки. 
-      Здесь вы можете найти общую информацию, а свежие записи доступны во вкладке «Лента».
-    </p>
+    <h1>{{ t('index.title') }}</h1>
+    <p class="description">{{ t('index.description') }}</p>
   </div>
 </template>
 
 <script setup>
+import { inject } from 'vue'
+const t = inject('t')
 </script>
 
 <style scoped>

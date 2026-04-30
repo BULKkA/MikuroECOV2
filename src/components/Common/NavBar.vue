@@ -1,7 +1,6 @@
 <template>
     <nav class="nav-wrapper">
         <ul class="nav-list">
-            <!-- Используем router-link для смены URL -->
             <router-link
                 v-for="item in items"
                 :key="item.name"
@@ -22,12 +21,16 @@
 </template>
 
 <script setup>
-const items = [
-    { name: 'index', label: 'Домик', icon: '🏠' },
-    { name: 'roll', label: 'Лента', icon: '🔍' }, 
-    { name: 'profile', label: 'Профиль', icon: '❤️' },
-    { name: 'about', label: 'ああああ', icon: '👤' },
-]
+import { computed, inject } from 'vue'
+
+const t = inject('t')
+
+const items = computed(() => [
+    { name: 'index', label: t('nav.home'), icon: '🏠' },
+    { name: 'roll', label: t('nav.feed'), icon: '🔍' },
+    { name: 'profile', label: t('nav.profile'), icon: '❤️' },
+    { name: 'about', label: t('nav.about'), icon: '👤' }
+])
 </script>
 
 <style scoped>
@@ -36,7 +39,7 @@ const items = [
     justify-content: left;
     padding: 14px 24px;
     border-radius: 20px;
-    width: 10%;
+    width: 100%;
     height: 100%;
 }
 
@@ -48,7 +51,6 @@ const items = [
     margin: 0;
     padding: 0;
     flex-direction: column;
-    align-self: right;
 }
 
 .nav-item {
@@ -57,7 +59,6 @@ const items = [
     gap: 10px;
     padding: 12px 18px;
     border-radius: 999px;
-    
     cursor: pointer;
     transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
@@ -68,7 +69,6 @@ const items = [
 }
 
 .nav-item.active {
- 
     background: rgba(59, 130, 246, 0.18);
     box-shadow: 0 8px 20px rgba(59, 130, 246, 0.18);
 }

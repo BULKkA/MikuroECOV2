@@ -1,10 +1,11 @@
 <template>
   <div class="profile-view">
-    <h1>Профиль пользователя</h1>
-    <p>Здесь будет информация о профиле и настройки.</p>
+    <h1>{{ t('profile.title') }}</h1>
+    <p>{{ t('profile.subtitle') }}</p>
   </div>
 </template>
 
 <script setup>
-// Логика для профиля
+import { inject } from 'vue'
+const t = inject('t')
 </script>

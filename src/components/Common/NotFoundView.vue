@@ -1,10 +1,11 @@
 <template>
   <div class="not-found-view">
-    <h1>404 - Страница не найдена</h1>
-    <p>Извините, запрашиваемая страница не существует.</p>
+    <h1>{{ t('notFound.title') }}</h1>
+    <p>{{ t('notFound.subtitle') }}</p>
   </div>
 </template>
 
 <script setup>
-//
+import { inject } from 'vue'
+const t = inject('t')
 </script>

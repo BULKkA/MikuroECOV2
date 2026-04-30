@@ -2,55 +2,80 @@
     <div class="menu-panel">
         <nav class="menu-nav">
             <img src="/Icon.png" alt="Logo" class="menu-logo" />
-            <ul class="menu-list">
-                <li class="menu-item">
-                    <router-link to="/login" class="menu-link">Вход</router-link>
-                </li>
-                <li class="menu-item">
-                    <router-link to="/register" class="menu-link">Регистрация</router-link>
-                </li>
-            </ul>
+            <div class="menu-actions">
+                <ul class="menu-list">
+                    <li class="menu-item">
+                        <router-link to="/login" class="menu-link">{{ t('menu.login') }}</router-link>
+                    </li>
+                    <li class="menu-item">
+                        <router-link to="/register" class="menu-link">{{ t('menu.register') }}</router-link>
+                    </li>
+                </ul>
+                <div class="lang-switcher">
+                    <button
+                        :class="{ active: lang === 'ru' }"
+                        @click="setLang('ru')"
+                    >
+                        {{ t('languages.ru') }}
+                    </button>
+                    <button
+                        :class="{ active: lang === 'en' }"
+                        @click="setLang('en')"
+                    >
+                        {{ t('languages.en') }}
+                    </button>
+                </div>
+            </div>
         </nav>
     </div>
 </template>
 
-<script>
-export default {
-    name: 'MenuPanel',
-    data() {
-        return {
-        }
-    }
-}
+<script setup>
+import { inject } from 'vue'
+
+const t = inject('t')
+const lang = inject('lang')
+const setLang = inject('setLang')
 </script>
 
 <style scoped>
 .menu-panel {
     border-bottom: 1px solid #ddd;
     width: 100%;
-    height: auto;
     box-sizing: border-box;
-    display: block;
 }
 
 .menu-nav {
-    padding: 0;
-    margin: 0;
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    gap: 1rem;
+}
+
+.menu-logo {
+    width: 80px;
+    height: auto;
+    margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.menu-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
     width: 100%;
-    justify-content: space-between
+    justify-content: flex-end;
 }
 
 .menu-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 0 auto;
+    margin: 0;
     display: flex;
-    flex-direction: row;
-    padding: 0.75rem 1.25rem;     /* вместо px */
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem);   
-    justify-content: right;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
 .menu-item {
@@ -59,50 +84,49 @@ export default {
 
 .menu-link {
     display: block;
-    padding: 12px 20px;
+    padding: 10px 16px;
     text-decoration: none;
     color: #333;
     transition: background-color 0.3s;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    font-size: clamp(0.95rem, 2.5vw, 1.15rem); 
+    border-radius: 14px;
+    font-size: 0.95rem;
 }
 
 .menu-link:hover {
-    background-color: #e0e0e0;
+    background-color: #f2f2f2;
 }
 
-.menu-logo {
-    width: 100px;
-    height: 100ppx;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    align-self: center;
-    flex-shrink: 0;
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
 }
 
-/* Мобильная адаптация */
+.lang-switcher button {
+    border: 1px solid #ccc;
+    background: white;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.lang-switcher button.active,
+.lang-switcher button:hover {
+    background-color: #2563eb;
+    border-color: #2563eb;
+    color: white;
+}
+
 @media (max-width: 768px) {
     .menu-nav {
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
-    
-    .menu-list {
-        margin: 0;
-        padding: 0.5rem;
-        justify-content: center;
-    }
-    
-    .menu-link {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
-    
-    .menu-logo {
-        width: 80px;
-        height: 80px;
-        margin: 0.5rem 0;
+    .menu-actions {
+        justify-content: space-between;
     }
 }
 </style>

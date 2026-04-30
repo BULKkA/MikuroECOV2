@@ -1,7 +1,7 @@
 <template>
     <section class="post-feed">
         <div v-if="posts.length === 0" class="empty-state">
-            Нет постов для отображения
+            {{ t('roll.emptyState') }}
         </div>
 
         <div v-else class="post-list">
@@ -12,8 +12,8 @@
                 </div>
                 <p class="post-excerpt">{{ post.excerpt }}</p>
                 <div class="post-meta">
-                    <span>Автор: {{ post.author }}</span>
-                    <span>Теги: {{ post.tags.join(', ') }}</span>
+                    <span>{{ t('roll.author') }}: {{ post.author }}</span>
+                    <span>{{ t('roll.tags') }}: {{ post.tags.join(', ') }}</span>
                 </div>
             </article>
         </div>
@@ -21,8 +21,9 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, inject } from 'vue'
 
+const t = inject('t')
 const posts = ref([
     {
         id: 1,

@@ -1,10 +1,11 @@
 <template>
   <div class="login-view">
-    <h1>Вход</h1>
-    <p>Здесь будет форма входа.</p>
+    <h1>{{ t('login.title') }}</h1>
+    <p>{{ t('login.subtitle') }}</p>
   </div>
 </template>
 
 <script setup>
-// Логика для входа
+import { inject } from 'vue'
+const t = inject('t')
 </script>
